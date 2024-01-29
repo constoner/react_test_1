@@ -8,7 +8,7 @@ const Contacts = () => {
       </p>
       <a
         className="ms-4 p-1 fs-6 text-decoration-none text-dark"
-        href="https://github.com/constoner/"
+        href="https://github.com/constoner/react_test_1/"
         target="_blank"
         rel="noreferrer"
       >

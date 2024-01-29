@@ -16,7 +16,6 @@ const getData = (url: string) => {
       return response.json();
     })
     .then((data) => {
-      console.log(MULTIPLIER);
       return multiplyArray(data, MULTIPLIER);
     });
 };

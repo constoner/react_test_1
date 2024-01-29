@@ -7,8 +7,8 @@ const Home = () => {
   return (
     <>
       <Header />
-      <main>
-        <div className="container">
+      <main className="flex-grow-1">
+        <div className="h-100">
           <LoadPosts />
         </div>
       </main>

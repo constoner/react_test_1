@@ -1,6 +1,6 @@
 # Тестовое задание на позицию Frontend-разработчик (React)
 
-деплой тут https://...
+деплой тут https://constoner.github.io/react_test_1/
 
 ## Задание
 
@@ -16,7 +16,9 @@
 - react 18.2.0
 - react router dom 6
 - rtk query
+- react-virtualized
 - react-window
+- react-window-infinite-loader
 - bootstrap 5.3.2
 - bootstrap icons
 - json placeholder
@@ -24,5 +26,6 @@
 
 ## Исползование
 
-- старт prod-сервера: `npm run start`
+- старт dev-сервера: `npm run start`
 - создание билда: `npm run build`
+- деплой на **gh-pages** автоматический, при пуше билда в ветку `master` _(не забыть указать верный **url** в package.json: homepage)_

@@ -1,6 +1,7 @@
 import React from "react";
 
 import Header from "../../widgets/header/";
+import LoadPosts from "../../features/loadPosts";
 
 const Home = () => {
   return (
@@ -8,8 +9,7 @@ const Home = () => {
       <Header />
       <main>
         <div className="container">
-          <h1>Home page</h1>
-          <p>Posts list</p>
+          <LoadPosts />
         </div>
       </main>
     </>

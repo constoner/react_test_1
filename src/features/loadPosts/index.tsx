@@ -4,13 +4,7 @@ import { getData } from "../../shared/utils/utils";
 import * as API from "../../shared/api/";
 
 import PostsList from "../../entities/postsList";
-
-interface IPost {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
+import { IPost } from "../../shared/types";
 
 const LoadPosts = () => {
   const [posts, setPosts] = useState<IPost[]>([]);

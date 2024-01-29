@@ -1,11 +1,6 @@
 import React from "react";
 
-interface IPost {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
+import { IPost } from "../../shared/types";
 
 const PostsList = ({ posts }: { posts: IPost[] }) => {
   return (

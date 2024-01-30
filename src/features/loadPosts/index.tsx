@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
+import PostsList from "../../entities/postsList";
+
 import { getData } from "../../shared/utils/utils";
 import * as API from "../../shared/api/";
-
-import PostsList from "../../entities/postsList";
 import { IPost } from "../../shared/types";
 
 const LoadPosts = () => {
@@ -11,8 +11,9 @@ const LoadPosts = () => {
   useEffect(() => {
     getData(API.allPostUrl).then((data) => setPosts(data));
   }, []);
-
-  return <PostsList posts={posts} />;
+  return (
+    <PostsList hasNextPage={true} isNextPageLoading={false} posts={posts} />
+  );
 };
 
 export default LoadPosts;

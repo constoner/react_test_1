@@ -16,8 +16,13 @@ const getData = (url: string) => {
       return response.json();
     })
     .then((data) => {
-      return multiplyArray(data, MULTIPLIER);
+      return multiplyArray(data, 1);
     });
 };
 
-export { getData };
+const getMoreData = ({ start, stop }: { start: number; stop: number }) => {
+  console.log(`loading items from ${start} to ${stop}`);
+  return new Promise((res) => res);
+};
+
+export { getData, getMoreData };

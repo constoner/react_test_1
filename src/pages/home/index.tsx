@@ -1,16 +1,14 @@
 import React from "react";
 
 import Header from "../../widgets/header/";
-import LoadPosts from "../../features/loadPosts";
+import MainList from "../../widgets/mainList";
 
 const Home = () => {
   return (
     <>
       <Header />
       <main className="flex-grow-1">
-        <div className="h-100">
-          <LoadPosts />
-        </div>
+        <MainList />
       </main>
     </>
   );

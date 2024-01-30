@@ -2,7 +2,9 @@ import React from "react";
 import { FixedSizeList } from "react-window";
 import { AutoSizer } from "react-virtualized";
 import InfiniteLoader from "react-window-infinite-loader";
+
 import Row from "../posItem";
+
 import IPostList from "./types";
 import listConfig from "./config";
 
@@ -31,7 +33,12 @@ const PostsList = ({
               innerElementType={"ul"}
               onItemsRendered={onItemsRendered}
             >
-              {Row(items, listConfig.BLOCK_HEIGHT, listConfig.TEXT_LENGTH)}
+              {Row(
+                items,
+                listConfig.BLOCK_HEIGHT,
+                listConfig.CARD_WIDTH,
+                listConfig.TEXT_LENGTH
+              )}
             </FixedSizeList>
           )}
         </InfiniteLoader>

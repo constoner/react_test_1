@@ -2,6 +2,7 @@ import React from "react";
 
 import Logo from "../../shared/ui/logo";
 import Contacts from "../../shared/ui/contacts";
+
 const Header = () => {
   return (
     <header className="bg-danger shadow">

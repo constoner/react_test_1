@@ -1,4 +1,5 @@
 import React from "react";
+
 import { IPost } from "../../shared/types";
 
 interface ICard extends IPost {

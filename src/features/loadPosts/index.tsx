@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getData } from "../../shared/utils/utils";
-import * as API from "../../shared/api/";
-import { IPost } from "../../shared/types";
 
 import PostsList from "../../entities/postsList";
+
+import { getData } from "../../shared/utils/utils";
+import * as API from "../../shared/api/";
+
+import { IPost } from "../../shared/types";
 
 const LoadPosts = () => {
   const [items, setItems] = useState<IPost[]>([]);

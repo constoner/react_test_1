@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { VariableSizeList as List } from "react-window";
+import { FixedSizeList } from "react-window";
 import { AutoSizer } from "react-virtualized";
 import InfiniteLoader from "react-window-infinite-loader";
 
@@ -7,42 +7,17 @@ import { getData } from "../../shared/utils/utils";
 import * as API from "../../shared/api/";
 
 import { IPost } from "../../shared/types";
-import { DOUBLEROW_HEIGHT } from "../../shared/config";
-// import { getMoreData } from "../../shared/utils/utils";
+import { ROW_HEIGHT } from "../../shared/config";
 
-interface IList {
-  hasNextPage: boolean;
-  isNextPageLoading: boolean;
-  posts: IPost[];
-}
-
-const PostsList = ({ hasNextPage, isNextPageLoading, posts }: IList) => {
+const PostsList = () => {
   const [items, setItems] = useState<IPost[]>([]);
 
   useEffect(() => {
-    setItems(posts);
-  }, [posts]);
-
-  // const listRef = useRef<any>({});
-  // const rowHeights = useRef<any>({});
-
-  // const getRowHeight = (index: number) => {
-  //   return rowHeights.current[index] || DOUBLEROW_HEIGHT;
-  // };
-
-  // const setRowHeight = (index: number, size: number) => {
-  //   listRef.current.resetAfterIndex(0);
-  //   rowHeights.current = { ...rowHeights.current, [index]: size };
-  // };
+    getData(API.allPostUrl).then((data) => setItems(data));
+  }, []);
 
   const Row = ({ index, style }: { index: number; style: any }) => {
     const rowRef = useRef<any>({});
-
-    // useEffect(() => {
-    //   if (rowRef.current) {
-    //     setRowHeight(index, rowRef.current.offsetHeight);
-    //   }
-    // }, [rowRef, index]);
 
     return (
       <li style={style}>
@@ -54,11 +29,9 @@ const PostsList = ({ hasNextPage, isNextPageLoading, posts }: IList) => {
   };
 
   const loadMoreItems = (startIndex: number, stopIndex: number) => {
-    return fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((data: any[]) => {
-        setItems((prev) => [...prev, ...data]);
-      });
+    return getData(API.allPostUrl).then((data: any[]) => {
+      setItems((prev) => [...prev, ...data]);
+    });
   };
   const itemCount: number = items.length + 1;
   const isItemLoaded = (index: number) => !!items[index];
@@ -72,18 +45,17 @@ const PostsList = ({ hasNextPage, isNextPageLoading, posts }: IList) => {
           loadMoreItems={loadMoreItems}
         >
           {({ onItemsRendered, ref }: any) => (
-            <List
+            <FixedSizeList
               ref={ref}
               height={height}
               itemCount={items.length}
-              // itemSize={getRowHeight}
-              itemSize={() => 24}
+              itemSize={ROW_HEIGHT}
               width={width}
               innerElementType={"ul"}
               onItemsRendered={onItemsRendered}
             >
               {Row}
-            </List>
+            </FixedSizeList>
           )}
         </InfiniteLoader>
       )}

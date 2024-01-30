@@ -4,4 +4,6 @@ const MULTIPLIER: number = Math.ceil(
   Math.log(ITEMS_NUMBER / API_RESPONSE_NUMBER) * 2
 );
 
-export { MULTIPLIER };
+const DOUBLEROW_HEIGHT: number = 48;
+
+export { MULTIPLIER, DOUBLEROW_HEIGHT };

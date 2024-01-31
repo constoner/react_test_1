@@ -5,6 +5,7 @@ import PostCard from "../../entities/postCard";
 
 import { getData } from "../../shared/utils/utils";
 import * as API from "../../shared/api";
+import { ROUTES } from "../../shared/routes";
 
 import { IPost } from "../../shared/types";
 
@@ -16,7 +17,8 @@ const defaultPost = {
 
 const LoadPost = () => {
   const params = useParams();
-  const URL: string = API.onePostUrl + params.postId?.slice(5); // 5 means length of "posts" in url-bar
+  const URL: string =
+    API.onePostUrl + params.postId?.slice(ROUTES.postRefix.length);
 
   const [loading, setLoading] = useState(true);
   const [postData, setPostData] = useState<IPost>(defaultPost);

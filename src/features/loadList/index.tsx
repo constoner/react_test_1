@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { ScrollRestoration } from "react-router-dom";
 
 import PostsList from "../../entities/postsList";
 
 import { getData } from "../../shared/utils/utils";
 import * as API from "../../shared/api";
 
-import { IPost } from "../../shared/types";
 import Loading from "../../shared/ui/loading";
+
+import { IPost } from "../../shared/types";
 
 const LoadList = () => {
   const [loading, setLoading] = useState(true);
@@ -35,6 +37,7 @@ const LoadList = () => {
         loadMoreItems={loadMoreItems}
         items={items}
       />
+      <ScrollRestoration />
     </>
   );
 };

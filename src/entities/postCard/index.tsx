@@ -1,14 +1,18 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
 
 import Loading from "../../shared/ui/loading";
+import { ROUTES } from "../../shared/routes";
 
 import { IPost } from "../../shared/types";
 
 interface ICard extends IPost {
-  loading?: any;
+  loading?: boolean;
 }
 
 const PostCard = ({ id, title, body, loading }: ICard) => {
+  const params = useParams<{ postId: string }>();
+
   return (
     <section className="py-3 position-relative">
       <div className="container min-h-50  p-5 rounded-3 shadow">
@@ -19,10 +23,10 @@ const PostCard = ({ id, title, body, loading }: ICard) => {
             {`Post id ${id}`}
           </p>
           <p>{body}</p>
-          <button
+          <Link
             className="btn btn-danger mt-5"
-            type="button"
-            onClick={() => history.back()} // eslint-disable-line
+            to={ROUTES.home}
+            state={{ prevState: params.postId }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +41,7 @@ const PostCard = ({ id, title, body, loading }: ICard) => {
               />
             </svg>
             <span className="ms-3">Go Back</span>
-          </button>
+          </Link>
         </>
       </div>
     </section>

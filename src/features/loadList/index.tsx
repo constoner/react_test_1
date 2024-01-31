@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import PostsList from "../../entities/postsList";
 
 import { getData } from "../../shared/utils/utils";
-import * as API from "../../shared/api/";
+import * as API from "../../shared/api";
 
 import { IPost } from "../../shared/types";
 
-const LoadPosts = () => {
+const LoadList = () => {
   const [items, setItems] = useState<IPost[]>([]);
   const itemCount: number = items.length + 1;
 
@@ -32,4 +32,4 @@ const LoadPosts = () => {
   );
 };
 
-export default LoadPosts;
+export default LoadList;

@@ -1,12 +1,12 @@
 import React from "react";
 
-import LoadPosts from "../../features/loadPosts";
+import LoadList from "../../features/loadList";
 
 const MainList = () => {
   return (
     <section className="h-100 position-relative">
       <h1 className="visually-hidden">The List of all Posts</h1>
-      <LoadPosts />
+      <LoadList />
     </section>
   );
 };

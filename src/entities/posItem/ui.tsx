@@ -1,6 +1,10 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import { IPost } from "../../shared/types";
+
+import { ROUTES } from "../../shared/routes";
 
 interface ICard extends IPost {
   length: number;
@@ -19,12 +23,12 @@ const PostCard = ({ id, title, body, length }: ICard) => {
             ? body
             : body.slice(0, length - 3).padEnd(length, ".")}
         </p>
-        <a
+        <Link
           className="position-absolute bottom-0 end-0 me-3 mb-3 btn btn-outline-danger"
-          href="#!"
+          to={`${ROUTES.post}${id}`}
         >
           View all
-        </a>
+        </Link>
       </div>
     </article>
   );

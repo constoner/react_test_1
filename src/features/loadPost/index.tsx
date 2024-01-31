@@ -15,7 +15,7 @@ const LoadPost = () => {
   const { data, isLoading } = useGetPostByIdQuery(URL);
 
   return (
-    <div className="position-relative">
+    <div className="position-relative h-100">
       {isLoading ? (
         <Loading />
       ) : (

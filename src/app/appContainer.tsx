@@ -16,11 +16,7 @@ import { ROUTES } from "../shared/routes";
 const router = createBrowserRouter([
   {
     path: `${ROUTES.home}`,
-    element: (
-      <Provider store={store}>
-        <MainLayout />
-      </Provider>
-    ),
+    element: <MainLayout />,
     children: [
       { index: true, element: <Home /> },
       {
@@ -31,8 +27,12 @@ const router = createBrowserRouter([
   },
 ]);
 
-const Container = () => {
-  return <RouterProvider router={router} />;
+const AppContainer = () => {
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 };
 
-export default Container;
+export default AppContainer;

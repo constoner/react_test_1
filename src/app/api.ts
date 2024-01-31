@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import * as API from "../shared/api/url";
+import * as API from "../shared/api/";
 
 const appApi = createApi({
   reducerPath: "appApi",

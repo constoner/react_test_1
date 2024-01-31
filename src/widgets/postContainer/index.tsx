@@ -2,8 +2,8 @@ import React from "react";
 
 import LoadPost from "../../features/loadPost";
 
-const PostPage = () => {
+const PostContainer = () => {
   return <LoadPost />;
 };
 
-export default PostPage;
+export default PostContainer;

@@ -1,11 +1,11 @@
 import React from "react";
 
-import LoadPost from "../../features/loadPost";
+import PostContainer from "../../widgets/postContainer";
 
 const Post = () => {
   return (
     <main className="flex-grow-1">
-      <LoadPost />
+      <PostContainer />
     </main>
   );
 };

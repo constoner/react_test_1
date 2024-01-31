@@ -1,5 +1,4 @@
-const baseUrl: string = "https://jsonplaceholder.typicode.com/";
-const allPostUrl: string = "https://jsonplaceholder.typicode.com/posts";
-const onePostUrl: string = "https://jsonplaceholder.typicode.com/posts/";
+const baseUrl: string = "https://jsonplaceholder.typicode.com";
+const allPostUrl: string = "posts";
 
-export { baseUrl, allPostUrl, onePostUrl };
+export { baseUrl, allPostUrl };

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
+import Loading from "../../shared/ui/loading";
 import PostsList from "../../entities/postsList";
 
-import Loading from "../../shared/ui/loading";
-
 import { useGetPostsQuery } from "../../app/api";
+
 import { IPost } from "../../shared/types";
 
 const Wrapper = ({ data }: { data: IPost[] }) => {

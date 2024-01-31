@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <div
       className="position-absolute top-0 start-0 z-3 w-100 h-100 d-flex justify-content-center align-items-center bg-white"
-      style={{ opacity: 0.9 }}
+      style={{ opacity: 0.5 }}
     >
       <p className="h1 text-secondary text-center">Loading...</p>
     </div>

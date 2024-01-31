@@ -1,41 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 
 import PostCard from "../../entities/postCard";
 
-import { getData } from "../../shared/utils/utils";
-import * as API from "../../shared/api";
 import { ROUTES } from "../../shared/routes";
 
-import { IPost } from "../../shared/types";
+// import { IPost } from "../../shared/types";
+import Loading from "../../shared/ui/loading";
 
-const defaultPost = {
-  id: 0,
-  title: "...",
-  body: "...",
-};
+import { useGetPostByIdQuery } from "../../app/api";
+
+// const defaultPost = {
+//   id: 0,
+//   title: "...",
+//   body: "...",
+// };
 
 const LoadPost = () => {
   const params = useParams();
-  const URL: string =
-    API.onePostUrl + params.postId?.slice(ROUTES.postRefix.length);
+  //@ts-ignore
+  const URL = params.postId?.slice(ROUTES.postRefix.length);
 
-  const [loading, setLoading] = useState(true);
-  const [postData, setPostData] = useState<IPost>(defaultPost);
-
-  useEffect(() => {
-    getData(URL)
-      .then((data) => setPostData(data))
-      .then(() => setLoading(false));
-  }, []);
+  //@ts-ignore
+  const { data, isLoading } = useGetPostByIdQuery(URL);
 
   return (
-    <PostCard
-      id={postData.id}
-      title={postData.title}
-      body={postData.body}
-      loading={loading}
-    />
+    <div className="position-relative">
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <PostCard id={data.id} title={data.title} body={data.body} />
+      )}
+    </div>
   );
 };
 

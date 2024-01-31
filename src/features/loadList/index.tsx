@@ -1,45 +1,40 @@
-import React, { useEffect, useState } from "react";
-import { ScrollRestoration } from "react-router-dom";
+import React, { useState } from "react";
 
 import PostsList from "../../entities/postsList";
 
-import { getData } from "../../shared/utils/utils";
-import * as API from "../../shared/api";
-
 import Loading from "../../shared/ui/loading";
 
+import { useGetPostsQuery } from "../../app/api";
 import { IPost } from "../../shared/types";
 
-const LoadList = () => {
-  const [loading, setLoading] = useState(true);
-  const [items, setItems] = useState<IPost[]>([]);
+const Wrapper = ({ data }: { data: IPost[] }) => {
+  const [items, setItems] = useState<IPost[]>(data);
+
   const itemCount: number = items.length + 1;
 
-  const loadMoreItems = (startIndex: number, stopIndex: number) => {
-    return getData(API.allPostUrl).then((data: any[]) => {
-      setItems((prev) => [...prev, ...data]);
-    });
-  };
   const isItemLoaded = (index: number) => !!items[index];
 
-  useEffect(() => {
-    getData(API.allPostUrl)
-      .then((data) => setItems(data))
-      .then(() => setLoading(false));
-  }, []);
+  const loadMoreItems = (startIndex: number, stopIndex: number) => {
+    return setItems([...items, ...items]);
+  };
 
   return (
-    <>
-      {loading && <Loading />}
-      <PostsList
-        isItemLoaded={isItemLoaded}
-        itemCount={itemCount}
-        loadMoreItems={loadMoreItems}
-        items={items}
-      />
-      <ScrollRestoration />
-    </>
+    <PostsList
+      isItemLoaded={isItemLoaded}
+      itemCount={itemCount}
+      loadMoreItems={loadMoreItems}
+      items={items}
+    />
   );
 };
 
+const LoadList = () => {
+  const { data, isLoading } = useGetPostsQuery(0);
+
+  return (
+    <div className="position-relative h-100">
+      {isLoading ? <Loading /> : <Wrapper data={data} />}
+    </div>
+  );
+};
 export default LoadList;

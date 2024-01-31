@@ -8,6 +8,7 @@ import { IPost } from "../../shared/types";
 const Row = (items: IPost[], height: number, width: number, length: number) => {
   return ({ index, style }: IRow) => {
     const { id, title, body } = items[index];
+
     return (
       <li style={style}>
         <div

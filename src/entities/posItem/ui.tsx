@@ -12,24 +12,37 @@ interface ICard extends IPost {
 
 const PostCard = ({ id, title, body, length }: ICard) => {
   return (
-    <article className="card mt-3 w-100 h-100 shadow">
-      <h2 className="card-header p-2 fs-6 fw-bolder bg-danger-subtle text-uppercase d-flex lh-sm">
+    <article className="position-relative mt-3 p-3 w-100 h-100 shadow rounded">
+      <h2 className="fs-6 fw-bolder text-uppercase d-flex lh-sm">
         <span className="fs-6 fw-light me-2">{id}.</span>
         {title}
       </h2>
-      <div className="card-body p-3 m-0 lh-sm">
-        <p>
-          {body.length <= length
-            ? body
-            : body.slice(0, length - 3).padEnd(length, ".")}
-        </p>
-        <Link
-          className="position-absolute bottom-0 end-0 me-3 mb-3 btn btn-outline-danger"
-          to={`${ROUTES.post}${id}`}
+      <p className="m-0 lh-sm">
+        {body.length <= length
+          ? body
+          : body
+              .slice(0, length - 3)
+              .trim()
+              .padEnd(length, ".")}
+      </p>
+      <Link
+        className="position-absolute bottom-0 end-0 d-flex align-content-baseline me-3 mb-3 btn btn-danger"
+        to={`${ROUTES.post}${id}`}
+      >
+        <span className="me-3">View all</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+          viewBox="0 0 16 16"
         >
-          View all
-        </Link>
-      </div>
+          <path
+            fillRule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+          />
+        </svg>
+      </Link>
     </article>
   );
 };

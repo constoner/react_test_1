@@ -14,17 +14,17 @@ const PostCard = ({ id, title, body, loading }: ICard) => {
   const params = useParams<{ postId: string }>();
 
   return (
-    <section className="py-3 position-relative">
-      <div className="container min-h-50  p-5 rounded-3 shadow">
+    <section className="container py-3 position-relative">
+      <div className="min-h-50  p-4 rounded-3 shadow">
         {loading && <Loading />}
         <>
-          <h1 className="h2">{title}</h1>
+          <h1 className="h1 text-uppercase">{title}</h1>
           <p className="fs-6 text-secondary" aria-label="Post number">
-            {`Post id ${id}`}
+            {`Post id: ${id}`}
           </p>
           <p>{body}</p>
           <Link
-            className="btn btn-danger mt-5"
+            className="d-inline-flex align-content-baseline w-a btn btn-danger mt-5"
             to={ROUTES.home}
             state={{ prevState: params.postId }}
           >

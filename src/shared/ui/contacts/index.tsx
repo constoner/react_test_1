@@ -3,11 +3,11 @@ import React from "react";
 const Contacts = () => {
   return (
     <div className="d-flex flex-wrap justify-content-end align-items-center fw-semibold flex-shrink-1 w-75">
-      <p className="m-0 ms-4 p-1 fs-6 fw-normal text-decoration-none text-end link-light">
+      <p className="m-0 ms-4 py-1 fs-6 fw-normal text-decoration-none text-end link-light">
         Калинин Константин. 2024
       </p>
       <a
-        className="ms-4 p-1 fs-6 text-decoration-none link-light link-opacity-50-hover"
+        className="ms-4 py-1 fs-6 text-decoration-none link-light link-opacity-50-hover"
         href="https://github.com/constoner/react_test_1/"
         target="_blank"
         rel="noreferrer"
@@ -25,7 +25,7 @@ const Contacts = () => {
         GitHub
       </a>
       <a
-        className="ms-4 p-1 fs-6 text-decoration-none link-light link-opacity-50-hover"
+        className="ms-4 py-1 fs-6 text-decoration-none link-light link-opacity-50-hover"
         href="https://t.me/constoner"
         target="_blank"
         rel="noreferrer"
@@ -43,7 +43,7 @@ const Contacts = () => {
         Telegram
       </a>
       <a
-        className="ms-4 p-1 fs-6 text-decoration-none link-light link-opacity-50-hover"
+        className="ms-4 py-1 fs-6 text-decoration-none link-light link-opacity-50-hover"
         href="tel:+79313482382"
       >
         <svg
@@ -62,7 +62,7 @@ const Contacts = () => {
         Phone
       </a>
       <a
-        className="ms-4 p-1 fs-6 text-decoration-none link-light link-opacity-50-hover"
+        className="ms-4 py-1 fs-6 text-decoration-none link-light link-opacity-50-hover"
         href="mailto:constantin.kalinin@gmail.com"
       >
         <svg

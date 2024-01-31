@@ -6,8 +6,10 @@ import { getData } from "../../shared/utils/utils";
 import * as API from "../../shared/api";
 
 import { IPost } from "../../shared/types";
+import Loading from "../../shared/ui/loading";
 
 const LoadList = () => {
+  const [loading, setLoading] = useState(true);
   const [items, setItems] = useState<IPost[]>([]);
   const itemCount: number = items.length + 1;
 
@@ -19,16 +21,21 @@ const LoadList = () => {
   const isItemLoaded = (index: number) => !!items[index];
 
   useEffect(() => {
-    getData(API.allPostUrl).then((data) => setItems(data));
+    getData(API.allPostUrl)
+      .then((data) => setItems(data))
+      .then(() => setLoading(false));
   }, []);
 
   return (
-    <PostsList
-      isItemLoaded={isItemLoaded}
-      itemCount={itemCount}
-      loadMoreItems={loadMoreItems}
-      items={items}
-    />
+    <>
+      {loading && <Loading />}
+      <PostsList
+        isItemLoaded={isItemLoaded}
+        itemCount={itemCount}
+        loadMoreItems={loadMoreItems}
+        items={items}
+      />
+    </>
   );
 };
 

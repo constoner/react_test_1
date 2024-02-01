@@ -5,12 +5,12 @@ import Loading from "../../shared/ui/loading";
 import PostCard from "../../entities/postCard";
 
 import { ROUTES } from "../../shared/routes";
-import { useGetPostByIdQuery } from "../../app/api";
+import { useGetPostByIdQuery } from "../../shared/api";
 
 const LoadPost = () => {
-  const params = useParams();
+  const params = useParams<{ postId: string }>();
 
-  const URL = params.postId?.slice(ROUTES.postRefix.length);
+  const URL: string | any = params.postId?.slice(ROUTES.postRefix.length);
 
   const { data, isLoading } = useGetPostByIdQuery(URL);
 

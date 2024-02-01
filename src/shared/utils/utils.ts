@@ -1,12 +1,3 @@
-const getData = (url: string) => {
-  return fetch(url).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-    return response.json();
-  });
-};
-
 const detectMob = () => {
   const toMatch: RegExp[] = [
     /Android/i,
@@ -22,4 +13,4 @@ const detectMob = () => {
     return navigator.userAgent.match(toMatchItem);
   });
 };
-export { getData, detectMob };
+export { detectMob };

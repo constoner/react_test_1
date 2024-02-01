@@ -13,16 +13,16 @@
 ## Стэк
 
 - typescript
-- react 18.2.0
+- react 18
 - react router dom 6
 - rtk query
 - react-virtualized
 - react-window
 - react-window-infinite-loader
-- bootstrap 5.3.2
+- bootstrap 5
 - bootstrap icons
 - json placeholder
-- github pades for deploy
+- github pages for deploy
 
 ## Исползование
 
